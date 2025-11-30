@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #BEE3F8;  /* BABY BLUE */
+    color: #1E2A35;
+}
+
+header {
+    background: #4A90E2;
+    color: white;
+    padding: 18px;
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+.nav {
+    text-align: center;
+    padding: 12px;
+    background: white;
+}
+.nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #4A90E2;
+    font-weight: 600;
+}
+
+.card {
+    width: 70%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.10);
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: 1px solid #97C9E9;
+    font-size: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    color: white;
+    background: #4A90E2;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+}
+button:hover {
+    background: #3D7BCC;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+}
+td, th {
+    padding: 10px;
+    border-bottom: 1px solid #E2E8F0;
+}
+.paid {
+    color: #2ECC71;
+    font-weight: 600;
+}
+.unpaid {
+    color: #E74C3C;
+    font-weight: 600;
+}
+
+

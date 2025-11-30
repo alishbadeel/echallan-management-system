@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Challan</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>Generate New Challan</header>
+
+<div class="nav">
+    <a href="/">Dashboard</a>
+    <a href="/generate">Generate</a>
+    <a href="/viewall">View All</a>
+</div>
+
+<div class="card">
+    <form method="POST">
+        <label>Name</label>
+        <input name="name" required>
+
+        <label>Vehicle No</label>
+        <input name="vehicle" required>
+
+        <label>Violation</label>
+        <select name="violation">
+            <option>No Helmet</option>
+            <option>Overspeeding</option>
+            <option>Signal Break</option>
+            <option>No License</option>
+        </select>
+
+        <label>Fine Amount</label>
+        <input name="fine" type="number" required>
+
+        <button>Generate</button>
+    </form>
+</div>
+
+</body>
+</html>
