@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>E-Challan Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>E-Challan</h2>
+        <a href="{{ url_for('dashboard') }}">📊 Dashboard</a>
+        <a href="{{ url_for('generate') }}">➕ Generate Challan</a>
+        <a href="{{ url_for('viewall') }}">📁 View All</a>
+        <a href="{{ url_for('search') }}">🔍 Search</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    <!-- MAIN -->
+    <div class="main">
+        <div class="title-bar">E-Challan Management System
+            <p style="text-align:center; color:black; margin:10px 0 0 0; font-size:16px;background-color:white;">
+                Government of Pakistan
+            </p>
+        </div>
+
+        <!-- STAT CARDS -->
+        <div class="stats">
+            <div class="card">
+                <h3>Total Challans</h3>
+                {{ total }}
+            </div>
+            <div class="card">
+                <h3>Total Fines</h3>
+                ₹ {{ fines }}
+            </div>
+            <div class="card">
+                <h3>Paid Challans</h3>
+                {{ paid }}
+            </div>
+        </div>
+
+        <!-- LATEST CHALLANS TABLE -->
+        <div class="card">
+            <h3>Latest Challans</h3>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                </tr>
+                {% for challan in challans %}
+                <tr>
+                    <td>{{ challan['id'] }}</td>
+                    <td>{{ challan['name'] }}</td>
+                    <td>₹ {{ challan['fine'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

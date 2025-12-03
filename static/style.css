@@ -1,83 +1,284 @@
+/* ================= GENERAL RESET ================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Times New Roman', Times, serif;
+    
 }
 
+/* ================= BODY ================= */
 body {
-    background: #BEE3F8;  /* BABY BLUE */
+    background: #f0f0f0;
     color: #1E2A35;
 }
 
+/* ================= HEADER ================= */
 header {
-    background: #4A90E2;
+    background: #065f46;
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    text-align: center;
+    padding: 20px 0;
+    background: #065f46;
+    min-height: 100vh;
+}
+
+.sidebar h2 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.sidebar a {
+    display: block;
+    margin: 15px auto;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: 80%;
+    transition: background 0.3s;
+}
+
+.sidebar a:hover {
+    background: #0f7a59;
+}
+
+/* ================= DASHBOARD LAYOUT ================= */
+.dashboard-container {
+    display: flex;
+    min-height: 90vh;
+}
+
+.dashboard-container .sidebar {
+    width: 220px;
+}
+
+.dashboard-container .main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* ================= TITLE BAR ================= */
+.title-bar {
+    background: #065f46;
     color: white;
     padding: 18px;
+    border-radius: 6px;
     text-align: center;
-    font-size: 25px;
-    letter-spacing: 1px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.nav {
-    text-align: center;
-    padding: 12px;
-    background: white;
-}
-.nav a {
-    margin: 0 12px;
-    text-decoration: none;
-    color: #4A90E2;
-    font-weight: 600;
-}
-
+/* ================= CARDS ================= */
 .card {
-    width: 70%;
-    margin: 20px auto;
     background: #fff;
     padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.10);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.1);
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stats .card {
+    flex: 1;
+    min-width: 150px;
+}
+
+/* ================= FORMS ================= */
+.form-container {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: 400px;
+    margin: 80px auto;
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #065f46;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
 }
 
 input, select {
     width: 100%;
-    padding: 12px;
-    margin: 12px 0;
-    border-radius: 10px;
-    border: 1px solid #97C9E9;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
     font-size: 15px;
 }
 
 button {
     width: 100%;
-    padding: 14px;
+    padding: 12px;
+    margin-top: 20px;
     border: none;
+    background: #065f46;
     color: white;
-    background: #4A90E2;
-    border-radius: 10px;
-    font-size: 17px;
+    font-size: 16px;
+    border-radius: 6px;
     cursor: pointer;
-}
-button:hover {
-    background: #3D7BCC;
+    transition: background 0.3s;
 }
 
+button:hover {
+    background: #0f7a59;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #065f46;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ================= TABLE ================= */
 table {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 15px;
+    border-collapse: collapse;
 }
-td, th {
-    padding: 10px;
+
+th, td {
+    padding: 12px;
     border-bottom: 1px solid #E2E8F0;
+    text-align: left;
 }
+
 .paid {
     color: #2ECC71;
     font-weight: 600;
 }
+
 .unpaid {
     color: #E74C3C;
     font-weight: 600;
 }
+
+/* ================= AUTH PAGE TABS ================= */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab.active {
+    border-bottom: 2px solid #065f46;
+    color: #065f46;
+}
+
+/* ================= NAV LINKS ================= */
+.nav {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #065f46;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.nav a:hover {
+    background: #0f7a59;
+    color: white;
+}
+
+/* ================= RESPONSIVE ================= */
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+    }
+    .card {
+        width: 90%;
+    }
+    .form-container {
+        width: 90%;
+        margin: 40px auto;
+    }
+    .stats {
+        flex-direction: column;
+    }
+}
+ .receipt {
+            width: 450px;
+            margin: 50px auto;
+            padding: 25px;
+            border: 2px solid #065f46;
+            border-radius: 10px;
+            background: #fff;
+        }
+        .receipt h2 {
+            text-align: center;
+            color: #065f46;
+        }
+        .receipt p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .print-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #065f46;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .print-btn:hover {
+            background: #0f7a59;
+        }
 
 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Challan Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="form-container">
+
+    <h1>🚦 E-Challan System</h1>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active" onclick="showLogin()">Login</div>
+        <div class="tab" onclick="showSignup()">Sign Up</div>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <form id="loginForm" class="form" method="POST" action="{{ url_for('login') }}">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="example@gmail.com" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="********" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <!-- SIGNUP FORM -->
+    <form id="signupForm" class="form" method="POST" action="{{ url_for('signup') }}" style="display:none;">
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="Your Name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="you@example.com" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Create password" required>
+
+        <button type="submit">Create Account</button>
+    </form>
+
+</div>
+
+<script>
+function showLogin(){
+    document.getElementById("loginForm").style.display="block";
+    document.getElementById("signupForm").style.display="none";
+    document.querySelectorAll('.tab')[0].classList.add('active');
+    document.querySelectorAll('.tab')[1].classList.remove('active');
+}
+function showSignup(){
+    document.getElementById("signupForm").style.display="block";
+    document.getElementById("loginForm").style.display="none";
+    document.querySelectorAll('.tab')[1].classList.add('active');
+    document.querySelectorAll('.tab')[0].classList.remove('active');
+}
+</script>
+
+</body>
+</html>
+
+
+
+

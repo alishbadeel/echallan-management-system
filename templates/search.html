@@ -1,40 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Search Challan</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
+<center>
 <header>Search Challan</header>
 
-<div class="nav">
-    <a href="/">Dashboard</a>
-    <a href="/generate">Generate</a>
-    <a href="/viewall">View All</a>
+<div class="nav" style="margin-bottom: 20px;">
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('generate') }}">Generate</a>
+    <a href="{{ url_for('viewall') }}">View All</a>
 </div>
 
-<div class="card">
-    <form method="POST">
-        <input name="query" placeholder="Search ID / Name / Vehicle">
-        <button>Search</button>
-    </form>
-</div>
+<div class="form-container">
+    <div class="card" style="width: 90%; max-width: 600px; margin-bottom: 20px;">
+        <form method="POST">
+            <input name="query" placeholder="Search ID / Name / Vehicle" style="margin-bottom: 10px;">
+            <button>Search</button>
+        </form>
+    </div>
 
-{% if challans %}
-<div class="card">
-    <table>
-        {% for c in challans %}
-        <tr>
-            <td>{{c[0]}}</td>
-            <td>{{c[1]}}</td>
-            <td>{{c[2]}}</td>
-            <td>₹{{c[3]}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
-{% endif %}
-
+    {% if challans %}
+    <div class="card" style="width: 90%; max-width: 800px;">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Vehicle</th>
+                <th>Fine</th>
+            </tr>
+            {% for c in challans %}
+            <tr>
+                <td>{{ c['id'] }}</td>
+                <td>{{ c['name'] }}</td>
+                <td>{{ c['vehicle'] }}</td>
+                <td>₹{{ c['fine'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endif %}
+</div> <!-- close form-container -->
+</center>
 </body>
 </html>

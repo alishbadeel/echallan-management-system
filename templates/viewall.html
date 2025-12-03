@@ -1,19 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>All Challans</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
+<center>
 <header>All Challans</header>
 
 <div class="nav">
-    <a href="/">Dashboard</a>
-    <a href="/generate">Generate</a>
-    <a href="/search">Search</a>
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('generate') }}">Generate</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Challans</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<center>
+<header>All Challans</header>
+
+<div class="nav">
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('generate') }}">Generate</a>
+    <a href="{{ url_for('search') }}">Search</a>
 </div>
 
-<div class="card">
+<div class="card" style="width: 90%; max-width: 900px; margin: 20px auto;">
     <table>
         <tr>
             <th>ID</th>
@@ -21,23 +38,27 @@
             <th>Vehicle</th>
             <th>Fine</th>
             <th>Status</th>
+            <th>Receipt</th>
         </tr>
-        {% for c in challans %}
+        {% for challan in challans %}
         <tr>
-            <td>{{c[0]}}</td>
-            <td>{{c[1]}}</td>
-            <td>{{c[2]}}</td>
-            <td>₹{{c[3]}}</td>
+            <td>{{ challan['id'] }}</td>
+            <td>{{ challan['name'] }}</td>
+            <td>{{ challan['vehicle'] }}</td>
+            <td>₹{{ challan['fine'] }}</td>
             <td>
-                {% if c[6] == 1 %}
+                {% if challan['paid'] == 1 %}
                     <span class="paid">PAID</span>
                 {% else %}
-                    <a href="/markpaid/{{c[0]}}" class="unpaid">Mark Paid</a>
+                    <a href="{{ url_for('markpaid', id=challan['id']) }}" class="unpaid">Mark Paid</a>
                 {% endif %}
+            </td>
+            <td>
+                <a href="{{ url_for('receipt', challan_id=challan['id']) }}" class="receipt-btn">View Receipt</a>
             </td>
         </tr>
         {% endfor %}
-    </table>
-</div>
-</body>
-</html>
+
+
+
+
