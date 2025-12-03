@@ -5,24 +5,9 @@
     <title>All Challans</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
 <center>
-<header>All Challans</header>
-
-<div class="nav">
-    <a href="{{ url_for('dashboard') }}">Dashboard</a>
-    <a href="{{ url_for('generate') }}">Generate</a>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All Challans</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-<center>
-<header>All Challans</header>
+<header>ALL CHALLANS</header>
 
 <div class="nav">
     <a href="{{ url_for('dashboard') }}">Dashboard</a>
@@ -30,34 +15,31 @@
     <a href="{{ url_for('search') }}">Search</a>
 </div>
 
-<div class="card" style="width: 90%; max-width: 900px; margin: 20px auto;">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Vehicle</th>
-            <th>Fine</th>
-            <th>Status</th>
-            <th>Receipt</th>
-        </tr>
-        {% for challan in challans %}
-        <tr>
-            <td>{{ challan['id'] }}</td>
-            <td>{{ challan['name'] }}</td>
-            <td>{{ challan['vehicle'] }}</td>
-            <td>₹{{ challan['fine'] }}</td>
-            <td>
-                {% if challan['paid'] == 1 %}
-                    <span class="paid">PAID</span>
-                {% else %}
-                    <a href="{{ url_for('markpaid', id=challan['id']) }}" class="unpaid">Mark Paid</a>
-                {% endif %}
-            </td>
-            <td>
-                <a href="{{ url_for('receipt', challan_id=challan['id']) }}" class="receipt-btn">View Receipt</a>
-            </td>
-        </tr>
-        {% endfor %}
+<div class="form_container">
+    <div class="card">
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th> Vehicle.no</th>
+                <th>Fine</th>
+            </tr>
+            {% for challan in challans %}
+            <tr>
+                <td>{{ challan['id'] }}</td>
+                <td>{{ challan['name'] }}</td>
+                <td>{{ challan['vehicle'] }}</td>
+                <td>PKR {{ "{:,.2f}".format(challan['fine']) }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+</center>
+</body>
+</html>
+
+
 
 
 

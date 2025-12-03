@@ -144,7 +144,6 @@ def viewall():
     data = cur.fetchall()
     conn.close()
     return render_template("viewall.html", challans=data)
-
 # ===== SEARCH CHALLANS =====
 @app.route("/search", methods=["GET","POST"])
 def search():

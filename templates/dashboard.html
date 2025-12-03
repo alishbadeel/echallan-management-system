@@ -21,26 +21,23 @@
     <!-- MAIN -->
     <div class="main">
         <div class="title-bar">E-Challan Management System
-            <p style="text-align:center; color:black; margin:10px 0 0 0; font-size:16px;background-color:white;">
-                Government of Pakistan
-            </p>
-        </div>
-
+          <p>
+    Government Of Pakistan
+</p>
+</div>
+<div class="form-container">
         <!-- STAT CARDS -->
         <div class="stats">
             <div class="card">
                 <h3>Total Challans</h3>
                 {{ total }}
             </div>
-            <div class="card">
-                <h3>Total Fines</h3>
-                ₹ {{ fines }}
-            </div>
-            <div class="card">
-                <h3>Paid Challans</h3>
-                {{ paid }}
-            </div>
-        </div>
+           <!-- Total Fines -->
+<div class="card">
+    <h3>Total Fines</h3>
+    <p>PKR {{ "{:,}".format(fines) }}</p>
+
+</div>
 
         <!-- LATEST CHALLANS TABLE -->
         <div class="card">
@@ -55,7 +52,7 @@
                 <tr>
                     <td>{{ challan['id'] }}</td>
                     <td>{{ challan['name'] }}</td>
-                    <td>₹ {{ challan['fine'] }}</td>
+                    <td>PKR {{ challan['fine'] }}</td>
                 </tr>
                 {% endfor %}
             </table>
@@ -63,6 +60,8 @@
 
     </div>
 
+</div>
+</div>
 </div>
 
 </body>

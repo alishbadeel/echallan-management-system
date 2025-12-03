@@ -7,7 +7,7 @@
 </head>
 <body>
 <center>
-<header>Search Challan</header>
+<header>SEARCH CHALLAN</header>
 
 <div class="nav" style="margin-bottom: 20px;">
     <a href="{{ url_for('dashboard') }}">Dashboard</a>
@@ -24,7 +24,7 @@
     </div>
 
     {% if challans %}
-    <div class="card" style="width: 90%; max-width: 800px;">
+    <div class="card" style="width: 100%; max-width: 800px;">
         <table>
             <tr>
                 <th>ID</th>
@@ -37,7 +37,8 @@
                 <td>{{ c['id'] }}</td>
                 <td>{{ c['name'] }}</td>
                 <td>{{ c['vehicle'] }}</td>
-                <td>₹{{ c['fine'] }}</td>
+                <td>PKR {{ "{:,}".format(c['fine']) }}</td>
+
             </tr>
             {% endfor %}
         </table>
