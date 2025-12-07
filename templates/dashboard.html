@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>E-Challan Dashboard</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -18,54 +19,50 @@
         <a href="{{ url_for('search') }}">🔍 Search</a>
         <a href="{{ url_for('logout') }}">Logout</a>
     </div>
+
     <!-- MAIN -->
     <div class="main">
-        <div class="title-bar">E-Challan Management System
-          <p>
-    Government Of Pakistan
-</p>
-</div>
-<div class="form-container">
-        <!-- STAT CARDS -->
-        <div class="stats">
+        <div class="title-bar">
+            E-Challan Management System
+            <p>Government Of Pakistan</p>
+        </div>
+
+        <div class="form-container">
+            <!-- STAT CARDS -->
             <div class="card">
                 <h3>Total Challans</h3>
                 {{ total }}
             </div>
-           <!-- Total Fines -->
-<div class="card">
-    <h3>Total Fines</h3>
-    <p>PKR {{ "{:,}".format(fines) }}</p>
 
-</div>
+            <div class="card">
+                <h3>Total Fines</h3>
+                <p>PKR {{ "{:,}".format(fines) }}</p>
+            </div>
 
-        <!-- LATEST CHALLANS TABLE -->
-        <div class="card">
-            <h3>Latest Challans</h3>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Amount</th>
-                </tr>
-                {% for challan in challans %}
-                <tr>
-                    <td>{{ challan['id'] }}</td>
-                    <td>{{ challan['name'] }}</td>
-                    <td>PKR {{ challan['fine'] }}</td>
-                </tr>
-                {% endfor %}
-            </table>
+            <!-- LATEST CHALLAN -->
+            {% if challans %}
+            <div class="card">
+                <h3>Latest Challan</h3>
+                <p><strong>ID:</strong> {{ challans[0]['id'] }}</p>
+                <p><strong>Name:</strong> {{ challans[0]['name'] }}</p>
+                <p><strong>Vehicle:</strong> {{ challans[0]['vehicle'] }}</p>
+                <p><strong>Violation:</strong> {{ challans[0]['violation'] }}</p>
+                <p><strong>Fine:</strong> PKR {{ "{:,}".format(challans[0]['fine']) }}</p>
+                <p><strong>Date:</strong> {{ challans[0]['issued_at'] }}</p>
+            </div>
+            {% else %}
+            <div class="card">
+                <h3>No challans generated yet.</h3>
+            </div>
+            {% endif %}
+
         </div>
-
     </div>
-
-</div>
-</div>
 </div>
 
 </body>
 </html>
+
 
 
 

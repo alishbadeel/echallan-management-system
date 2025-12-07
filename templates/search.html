@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Challan</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -18,33 +19,39 @@
 <div class="form-container">
     <div class="card" style="width: 90%; max-width: 600px; margin-bottom: 20px;">
         <form method="POST">
-            <input name="query" placeholder="Search ID / Name / Vehicle" style="margin-bottom: 10px;">
+            <input type="number" name="query" placeholder="Enter your Challan ID" required>
             <button>Search</button>
         </form>
     </div>
 
-    {% if challans %}
-    <div class="card" style="width: 100%; max-width: 800px;">
+   {% if challans %}
+    <div class="card" style="width: 90%; max-width: 600px;">
         <table>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Vehicle</th>
+                <th>Violation</th>
                 <th>Fine</th>
+                <th>Issue Date</th>
             </tr>
             {% for c in challans %}
             <tr>
                 <td>{{ c['id'] }}</td>
                 <td>{{ c['name'] }}</td>
                 <td>{{ c['vehicle'] }}</td>
+                <td>{{ c['violation'] }}</td>
                 <td>PKR {{ "{:,}".format(c['fine']) }}</td>
-
+                <td>{{ c['issued_at'] }}</td>
             </tr>
             {% endfor %}
         </table>
     </div>
-    {% endif %}
+{% else %}
+    <p style="text-align:center; margin-top:20px;">No challan found with this ID.</p>
+{% endif %}
 </div> <!-- close form-container -->
 </center>
 </body>
 </html>
+

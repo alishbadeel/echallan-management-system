@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Challan Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -19,48 +20,48 @@
 
     <!-- LOGIN FORM -->
     <form id="loginForm" class="form" method="POST" action="{{ url_for('login') }}">
+        {% if login_error %}
+            <p class="error-message">{{ login_error }}</p>
+        {% endif %}
         <label>Email</label>
         <input type="email" name="email" placeholder="example@gmail.com" required>
-
         <label>Password</label>
         <input type="password" name="password" placeholder="********" required>
-
         <button type="submit">Login</button>
     </form>
-
     <!-- SIGNUP FORM -->
     <form id="signupForm" class="form" method="POST" action="{{ url_for('signup') }}" style="display:none;">
+        {% if signup_error %}
+            <p class="error-message">{{ signup_error }}</p>
+        {% endif %}
         <label>Full Name</label>
         <input type="text" name="name" placeholder="Your Name" required>
-
         <label>Email</label>
         <input type="email" name="email" placeholder="you@example.com" required>
-
         <label>Password</label>
         <input type="password" name="password" placeholder="Create password" required>
-
         <button type="submit">Create Account</button>
     </form>
-
 </div>
-
 <script>
 function showLogin(){
-    document.getElementById("loginForm").style.display="block";
-    document.getElementById("signupForm").style.display="none";
+    document.getElementById("loginForm").style.display = "block";
+    document.getElementById("signupForm").style.display = "none";
     document.querySelectorAll('.tab')[0].classList.add('active');
     document.querySelectorAll('.tab')[1].classList.remove('active');
 }
 function showSignup(){
-    document.getElementById("signupForm").style.display="block";
-    document.getElementById("loginForm").style.display="none";
+    document.getElementById("signupForm").style.display = "block";
+    document.getElementById("loginForm").style.display = "none";
     document.querySelectorAll('.tab')[1].classList.add('active');
     document.querySelectorAll('.tab')[0].classList.remove('active');
 }
 </script>
-
 </body>
 </html>
+
+
+
 
 
 

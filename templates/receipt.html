@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challan Receipt</title>
+
+    <!-- Include your CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        Challan Receipt
+    </header>
+
+    <div class="dashboard-container">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('viewall') }}">View Challans</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+        <!-- MAIN CONTENT -->
+        <div class="main">
+            <div class="title-bar">Receipt Details</div>
+            <div class="receipt-box">
+          <h2>Challan ID: {{ data['id'] }}</h2>
+<p>Name: {{ data['name'] }}</p>
+<p>Vehicle: {{ data['vehicle'] }}</p>
+<p>Violation: {{ data['violation'] }}</p>
+<p>Fine: PKR {{ "{:,}".format(data['fine']) }}</p>
+<p>Issued At: {{ data['issued_at'] }}</p>
+
+                <br>
+                <a href="{{ url_for('dashboard') }}" 
+                   style="background:#065f46; color:white; padding:12px; border-radius:8px;">
+                    Return to Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

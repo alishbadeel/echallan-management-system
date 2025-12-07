@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Challans</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -15,14 +16,15 @@
     <a href="{{ url_for('search') }}">Search</a>
 </div>
 
-<div class="form_container">
+<div class="form-container">
     <div class="card">
         <table border="1">
             <tr>
-                <th>ID</th>
+                <th>Challan-ID</th>
                 <th>Name</th>
-                <th> Vehicle.no</th>
+                <th>Vehicle No.</th>
                 <th>Fine</th>
+                <th>Issued Date</th>
             </tr>
             {% for challan in challans %}
             <tr>
@@ -30,6 +32,7 @@
                 <td>{{ challan['name'] }}</td>
                 <td>{{ challan['vehicle'] }}</td>
                 <td>PKR {{ "{:,.2f}".format(challan['fine']) }}</td>
+                <td>{{ challan['issued_at'] }}</td>
             </tr>
             {% endfor %}
         </table>
@@ -38,6 +41,7 @@
 </center>
 </body>
 </html>
+
 
 
 

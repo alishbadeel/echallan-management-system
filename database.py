@@ -26,7 +26,6 @@ def init_db():
         violation TEXT NOT NULL,
         fine INTEGER NOT NULL,
         issued_at TEXT NOT NULL,
-        paid INTEGER DEFAULT 0,
         FOREIGN KEY(user_id) REFERENCES users(id)
     )
     """)
