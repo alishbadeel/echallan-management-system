@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+<center>
     <!-- HEADER -->
     <header>
         Challan Receipt
@@ -35,15 +35,13 @@
 <p>Violation: {{ data['violation'] }}</p>
 <p>Fine: PKR {{ "{:,}".format(data['fine']) }}</p>
 <p>Issued At: {{ data['issued_at'] }}</p>
-
                 <br>
-                <a href="{{ url_for('dashboard') }}" 
-                   style="background:#065f46; color:white; padding:12px; border-radius:8px;">
-                    Return to Dashboard
-                </a>
-            </div>
+             <a href="{{ url_for('dashboard') }}" class="button">
+    Return to Dashboard
+</a>
         </div>
     </div>
+</center>
 </body>
 </html>
 
