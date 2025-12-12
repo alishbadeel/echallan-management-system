@@ -1,11 +1,8 @@
 import sqlite3
-
 DB_NAME = "challan.db"
-
 def init_db():
     conn = sqlite3.connect(DB_NAME)
     cur = conn.cursor()
-
     # Create users table for login/signup
     cur.execute("""
     CREATE TABLE IF NOT EXISTS users(
@@ -15,7 +12,6 @@ def init_db():
         password TEXT NOT NULL
     )
     """)
-
     # Create challan table with user_id to link challan to the user
     cur.execute("""
     CREATE TABLE IF NOT EXISTS challan(
@@ -29,10 +25,8 @@ def init_db():
         FOREIGN KEY(user_id) REFERENCES users(id)
     )
     """)
-
     conn.commit()
     conn.close()
-
 def get_db():
     conn = sqlite3.connect(DB_NAME)
     conn.row_factory = sqlite3.Row  # Access columns by name
