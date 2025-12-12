@@ -9,13 +9,11 @@
 <body>
 <center>
 <header>SEARCH CHALLAN</header>
-
 <div class="nav" style="margin-bottom: 20px;">
     <a href="{{ url_for('dashboard') }}">Dashboard</a>
     <a href="{{ url_for('generate') }}">Generate</a>
     <a href="{{ url_for('viewall') }}">View All</a>
 </div>
-
 <div class="form-container">
     <div class="card" style="width: 90%; max-width: 600px; margin-bottom: 20px;">
         <form method="POST">
@@ -23,7 +21,6 @@
             <button>Search</button>
         </form>
     </div>
-
    {% if challans %}
     <div class="card" style="width: 90%; max-width: 600px;">
         <table>

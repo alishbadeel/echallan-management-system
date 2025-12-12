@@ -105,7 +105,7 @@ def generate():
         return redirect("/")
     if request.method == "POST":
         name = request.form["name"]
-        vehicle = request.form["vehicle"]
+        vehicle = request.form["vehicle number"]
         violation = request.form["violation"]
         fine = VIOLATION_FINE.get(violation, 0)
         issued_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")

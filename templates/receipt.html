@@ -35,10 +35,9 @@
 <p>Violation: {{ data['violation'] }}</p>
 <p>Fine: PKR {{ "{:,}".format(data['fine']) }}</p>
 <p>Issued At: {{ data['issued_at'] }}</p>
-                <br>
-             <a href="{{ url_for('dashboard') }}" class="button">
-    Return to Dashboard
-</a>
+<button type="button" onclick="alert('Follow the payment gateway to pay')">
+    Pay Now
+</button>
         </div>
     </div>
 </center>
