@@ -4,9 +4,7 @@ from datetime import datetime
 import hashlib
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
-# Initialize DB
 init_db()
-# Violation to fine mapping
 VIOLATION_FINE = {
     "Overspeeding": 15000,
     "Signal break": 20000,
@@ -52,7 +50,7 @@ def signup():
     )
     conn.commit()
     conn.close()
-    return redirect("/")
+    return redirect("/dashboard")
 @app.route("/login", methods=["POST"])
 def login():
     email = request.form["email"]
@@ -110,7 +108,7 @@ def generate():
         fine = VIOLATION_FINE.get(violation, 0)
         issued_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         user_id = session["user_id"]
-        conn = get_db()
+        conn = get_db()   
         cur = conn.cursor()
         cur.execute("""
             INSERT INTO challan(user_id, name, vehicle, fine, violation, issued_at)
